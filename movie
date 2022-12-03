@@ -1,0 +1,125 @@
+
+import random
+
+# variables
+mood = ('happy', 'sad', 'neutral')
+version = ('newer', 'older')
+impact = ('iconic', 'seasonal', 'modern')
+
+class movie:
+    def __init__(self, mood, version, impact, name):
+        self.mood = mood
+        self.version = version
+        self.impact = impact
+        self.name = name
+
+# string representation
+def __str__(self):
+    return self.name
+
+# returns the string representation of an object
+def __repr__(self):
+    return str(self)
+
+
+# movies 
+winnie_the_pooh_new_version = movie(mood = 'happy', version = 'newer', impact = 'iconic', name='Winnie the Pooh 2011 version')
+winnie_the_pooh_a_very_merry_pooh_christmas = movie(mood = 'neutral', version = 'older', impact = 'seasonal', name='Winnie the Pooh: A Very Merry Pooh Christmas')
+the_many_adventures_of_winnie_the_pooh = movie(mood = 'neutral', version = 'older', impact = 'iconic', name='The many adventures of Winnie the Pooh')
+poohs_heffalump_movie = movie(mood = 'sad', version = 'newer', impact = 'iconic', name='Poohs Heffalump movie')
+piglets_big_movie = movie(mood = 'sad', version = 'older', impact = 'iconic', name='Piglets big movie')
+poohs_grand_adventure_search_for_christopher_robin = movie(mood = 'happy', version = 'older', impact = 'iconic', name='Poohs Grand Adventure: search for Christopher Robin')
+the_tigger_movie = movie(mood = 'sad', version = 'older', impact = 'seasonal', name='The Tigger Movie')
+winnie_the_pooh_springtime_with_roo = movie(mood = 'neutral', version = 'older', impact = 'seasonal', name='Winnie the Pooh: Springtime with Roo')
+christopher_robin = movie(mood = 'happy', version = 'newer', impact = 'modern', name='Christopher Robin')
+goodbye_christopher_robin = movie(mood = 'neutral', version = 'newer', impact = 'modern', name='Goodbye Christopher Robin')
+
+all_movies = [
+    winnie_the_pooh_new_version,
+    winnie_the_pooh_a_very_merry_pooh_christmas,
+    the_many_adventures_of_winnie_the_pooh,
+    poohs_heffalump_movie,
+    piglets_big_movie,
+    poohs_grand_adventure_search_for_christopher_robin,
+    the_tigger_movie,
+    winnie_the_pooh_springtime_with_roo, 
+    christopher_robin,
+    goodbye_christopher_robin
+ ]
+
+def mood_input():
+    
+    choice = 'wrong'
+    print("\nThese are the types of emotions you can choose from:  " + str(mood))    
+    
+    while choice not in mood:
+        
+        choice = input("Please choose the mood you are feeeling. ")
+        
+        if choice not in mood:
+            print("Sorry, we do not have this emotion in our system. Please choose another one. ")
+            
+        else:
+            return choice
+
+
+def version_input():
+    
+    choice = 'wrong'
+    print("\nWhat kind of version do you want to watch?  " + str(version))    
+    
+    while choice not in version:
+        
+        choice = input("Please choose the version you want. ")
+        
+        if choice not in version:
+            print("Sorry, we are currently having only two versions you can choose from. Please choose another one. ")
+            
+        else:
+            return choice
+
+def impact_input():
+    
+    choice = 'wrong'
+    print("\nHow impactful do you want it to be?  " + str(impact))    
+    
+    while choice not in impact:
+        
+        choice = input("Please choose the impact you want. ")
+        
+        if choice not in impact:
+            print("Sorry, there are only three types of impact and no more. Please choose another one. ")
+            
+        else:
+            return choice
+
+def decision(mood, version, impact):
+    a = []
+   # choose correct list
+    for x in all_movies:
+        if x.mood == mood and x.version == version and x.impact == impact:
+            a.append(x)
+    return a
+
+print('Welcome to Pick A Movie!\n')
+def movie_picker():
+
+    # ask for the mood 
+    mood = mood_input()
+
+    # ask for version
+    version =  version_input()
+    
+    # ask for impact
+    impact = impact_input()
+
+    # create a list of choices based on the user input of mood, version and impact 
+    final_choice = decision(mood, version, impact)
+
+    # choose randomly from the list above
+    final_decision = random.choice(final_choice)
+
+    # print the final choice
+    print('\n The movie for you is: ' + str(final_decision))
+
+movie_picker()
